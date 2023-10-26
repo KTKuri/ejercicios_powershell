@@ -12,6 +12,6 @@ foreach ($dep in $departamentos)
 
 foreach ($emp in $empleados)
 {
-    New-ADUser -Name $($emp.nombre) -Path "OU=$($emp.departamento),OU=Empresa,DC=Empresa,DC=Local" -SamAccountName "$($emp.nombre).$($emp.apellido)" -UserPrincipalName "$($emp.nombre).$($emp.apellido)@empresa.local" -AccountPassword (ConvertTo-SecureString "aso2021." -AsPlainText -Force) -GivenName "$($emp.nombre)" -Surname "$($emp.apellido)" -ChangePasswordAtLogon $true -Enabled $true
+    New-ADUser -Name $($emp.nombre) -Path "OU=$($emp.departamento),OU=Empresa,DC=Empresa,DC=Local" -SamAccountName "$($emp.nombre).$($emp.apellido)" -UserPrincipalName "$($emp.nombre).$($emp.apellido)@empresa.local" -AccountPassword (ConvertTo-SecureString "aso2021." -AsPlainText -Force) -GivenName "$($emp.nombre)" -Surname "$($emp.apellido)" -ChangePasswordAtLogon $false -Enabled $true
     Add-ADGroupMember -Identity "$($emp.departamento)" -Members "$($emp.nombre).$($emp.apellido)"
 }
