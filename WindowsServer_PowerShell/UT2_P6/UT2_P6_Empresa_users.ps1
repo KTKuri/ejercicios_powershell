@@ -4,7 +4,7 @@ $empleados = Import-Csv C:\Users\Administrador\Desktop\archivoscsv\empleados.csv
 
 
 #Crear la estructura
-New-Item -Path C:\Empresa_users -Name Empresa_users -ItemType Directory
+New-Item -Path C:\ -Name Empresa_users -ItemType Directory
 New-SmbShare -Name Empresa_users$ -Path C:\Empresa_users -FullAccess "Usuarios del dominio"
 
 
